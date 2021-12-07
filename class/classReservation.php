@@ -8,7 +8,7 @@ class Reservation{
     public $fin;
     public $idUtilisateur;
 
-    public function __construct(){
+    public function __construct($titre, $descriptions, $date, $id_utilisateur){
         $this->pdo = new PDO('mysql:host=localhost;dbname=reservationsalles', 'root', 'root', [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, 
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
@@ -78,6 +78,7 @@ class Reservation{
         $insertReservation->bindValue(':id_utilisateur', $idUser, PDO::PARAM_STR);
         $insertReservation->execute();
 
+        
     } 
 
 }

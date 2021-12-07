@@ -1,5 +1,9 @@
 <?php
-
+if(isset($_POST['submit'])){
+    $connecter = new Reservation();
+    $connecter->getEvent($_POST['titre'], $_POST['date'], $_POST['crenneaux'], $_POST['description']);
+    //header("Location:../index.php");
+}
 ?>
 <?php
 require '../template/header.php';
@@ -23,6 +27,7 @@ require '../template/header.php';
             <option value="11">18h/19h</option>   
         </select>
         <textarea name="description" row="4" cols="50" placeholder="Descrition de votre evenement" style="resize:none" required='required'></textarea>
+        <button class="btn btn-success from-group" type="submit" name="submit">Reserver</button>
     </form>
 </article>
 
