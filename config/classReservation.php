@@ -1,5 +1,5 @@
 <?php
-
+require '../config/db.php';
 class Reservation{
     public $id;
     public $titre;
@@ -8,18 +8,11 @@ class Reservation{
     public $fin;
     public $idUtilisateur;
 
-    public function __construct($titre, $descriptions, $date, $id_utilisateur){
-        $this->pdo = new PDO('mysql:host=localhost;dbname=reservationsalles', 'root', 'root', [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, 
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
-
-}
-//---------------------------------------------Get event-----------------------------------------------------
-    public getEvent(){
-
-        $idUser = $_SESSION['user']['id'];
-        $titre = $_POST['titre'];
-        $description = $_POST['descriptions'];
+    function __construct(){
+        $this->db=connect();
+        }
+//---------------------------------------------------------------------Get event-----------------------------------------------------
+    public function getEvent($titre, $description, $debut, $fin, $idUser){
 
         if(isset($_POST['creneaux']) && $_POST['creneaux'] == 1){
             $debut = date('08:00:00');
@@ -63,21 +56,31 @@ class Reservation{
         }
         elseif(isset($_POST['creneaux']) && $_POST['creneaux'] == 11){
             $debut = date('18:00:00');
-            $fin = date('18:00:00');
+            $fin = date('19:00:00');
         }
+
+        $idUser = $_SESSION['user']['id'];
+        $titre = $_POST['titre'];
+        $description = $_POST['description'];
+        $debut_d = $_POST['date'].' '.$debut;
+        $fin_d =  $_POST['date'].' '.$fin;   
         
+        var_dump($_POST['creneaux']).'<br>';
+        var_dump($debut_d).'<br>';
+        var_dump($fin_d).'<br>';
+
 
         $titre = htmlspecialchars(trim($titre));
         $description = htmlspecialchars(trim($description));
 
-        $insertReservation = $this->pdo->prepare("INSERT INTO reservations(titre, description, debut, fin, id_utilisateur) VALUES (:titre, :description, :debut, :fin, :id_utilisateur)");
+        $insertReservation = $this->db->prepare("INSERT INTO reservations(titre, description, debut, fin, id_utilisateur) VALUES (:titre, :description, :debut, :fin, :id_utilisateur)");
         $insertReservation->bindValue(':titre', $titre, PDO::PARAM_STR);
         $insertReservation->bindValue(':description', $description, PDO::PARAM_STR);
-        $insertReservation->bindValue(':debut', $debut, PDO::PARAM_STR);
-        $insertReservation->bindValue(':fin', $fin, PDO::PARAM_STR);
+        $insertReservation->bindValue(':debut', $debut_d, PDO::PARAM_STR);
+        $insertReservation->bindValue(':fin', $fin_d, PDO::PARAM_STR);
         $insertReservation->bindValue(':id_utilisateur', $idUser, PDO::PARAM_STR);
         $insertReservation->execute();
-
+        
         
     } 
 

@@ -123,7 +123,6 @@ public function user_profil($login,$password,$password2){
     }
     }
     // public function logout() {
-
     //     session_start();
     //     session_destroy();
     //     header("Location: index.php");
