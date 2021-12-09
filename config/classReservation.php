@@ -77,7 +77,7 @@ class Reservation{
         $insertReservation->bindValue(':fin', $fin, PDO::PARAM_STR);
         $insertReservation->bindValue(':id_utilisateur', $idUser, PDO::PARAM_STR);
         $insertReservation->execute();
-
+        
         
     } 
 

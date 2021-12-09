@@ -62,7 +62,7 @@ public function user_connexion() {
     if(password_verify($_POST['password'],$cofetch['password'])) {
         if($userExists==1 ) {
         $_SESSION['user'] = $cofetch;
-        // header("Location: profil.php");
+        header("Location: profil.php");
         }   
     }
 
@@ -123,7 +123,6 @@ public function user_profil($login,$password,$password2){
     }
     }
     // public function logout() {
-
     //     session_start();
     //     session_destroy();
     //     header("Location: index.php");

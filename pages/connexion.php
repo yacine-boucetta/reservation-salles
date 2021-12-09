@@ -5,7 +5,7 @@ if(isset($_POST['sign_in'])){
     $connect= new User();
     $connect->user_connexion($_POST['login'],$_POST['password']);
     }
-
+    var_dump($_SESSION['user']);
 ?>
 
 

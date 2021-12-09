@@ -20,8 +20,7 @@ require '../template/header.php';
     <th>Samedi</th>
     <th>Dimanche</th>
     </tr>";
-
-
+    
     ?>
 </article>
 
