@@ -10,8 +10,7 @@ $inscription->user_inscription($_POST['login'],$_POST['password'],$_POST['passwo
 
 
 
-
-<main>
+<?php require 'header.php';?>
 <h2>Sign up</h2>
     <form  method='post'>
         <input type="text" name="login" required="" placeholder="Username">
@@ -19,5 +18,5 @@ $inscription->user_inscription($_POST['login'],$_POST['password'],$_POST['passwo
         <input type="password" name="password2" required="" placeholder="veuillez confirmer votre mot de passe">
         <button type="submit" name="sign_up" value="sign_up">Valider</button>
     </form>
-</main>
+    <?php require 'footer.php';?>
 
