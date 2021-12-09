@@ -17,8 +17,6 @@ require '../template/header.php';
     <th>Mercredi</th>
     <th>Jeudi</th>
     <th>Vendredi</th>
-    <th>Samedi</th>
-    <th>Dimanche</th>
     </tr>";
     
     ?>
