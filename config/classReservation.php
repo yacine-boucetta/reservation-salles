@@ -84,5 +84,23 @@ class Reservation{
         
     } 
 
+    public function getEventbyId(){
+        $getReservation = $this->db->prepare("SELECT reservation.id, reservation.titre, reservation.description, 
+        reservation.debut, reservation.fin reservation.id_utilisateur
+        FROM reservation JOIN utilisateur
+        WHERE reservation.id = :id
+        AND utilisateur.id = reservation.id_utilisateur");
+        $getReservation->bindValue(':id', $idUser, PDO::PARAM_STR);
+        $getReservation->execute();
+        $result = $getReservation->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+    public function getPlanning(){
+        $planning=$this->db->prepare("SELECT * from utilisateurs INNER JOIN reservations ON utilisateurs.id = reservations.id_utilisateur");
+        $plannining->execute();
+        $resulta = $planning->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
 ?>
