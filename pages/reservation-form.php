@@ -2,14 +2,9 @@
 require '../config/classReservation.php';
 
 if(isset($_POST['submit'])){
-
-
-
     $connecter = new Reservation();
     $connecter->getEvent($_POST['titre'], $_POST['description'], $_POST['date'], $_POST['creneaux'], $_SESSION['user']['id']);
     //header("Location:../index.php");
-
-
 }
 ?>
 <?php
