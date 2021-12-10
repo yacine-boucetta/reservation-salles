@@ -9,7 +9,7 @@ $profile->user_profil($_POST['login'],$_POST['password'],$_POST['password2']);
 ?>
 
 
-<?php require 'header.php';?>
+<?php require '../template/header.php';?>
 <h2>mon profil</h2>
 <p><?php if(isset($message)){ echo $message; }?></p>
 <form  method='post'>
@@ -22,4 +22,4 @@ $profile->user_profil($_POST['login'],$_POST['password'],$_POST['password2']);
     <label for=""><p style="color:rgb(3, 134, 128);font-family:'upheavtt';">confirmation mdp </p></label>
     <input type="password" name="password2"  placeholder="veuillez confirmer votre mot de passe">
     <button type="submit" name="valider" value="valider">valider</button>
-<?php require 'footer.php';?>
+<?php require '../template/footer.php';?>
