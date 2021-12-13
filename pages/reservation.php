@@ -16,8 +16,8 @@ if(isset($_GET['id'])){
     $timeStart = $eventinfo[0]['debut'];
     $timeEnd = $eventinfo[0]['fin'];
 
-    $varDebut = ucfirst(strftime('%A, le %d %B à %H h', strtotime($timeStart)));
-    $varFin = ucfirst(strftime('%A, le %d %B à %H h', strtotime($timeEnd)));
+    $varDebut = ucfirst(strftime('le %A %d %B à %H h', strtotime($timeStart)));
+    $varFin = ucfirst(strftime('le %A %d %B à %H h', strtotime($timeEnd)));
     // echo '<pre>';
     // var_dump($timeStart);
     // echo '</pre>';
@@ -66,21 +66,21 @@ require '../template/header.php';
     <article>
 
     <section class="Pbooking">
-    <p>Réservation réalisée par:</p> <?php echo $getUser[0]['login']; ?>
+    <p>Réservation réalisée par: <?php echo $getUser[0]['login']; ?></p>
     </section>
 
     <section class="Pbooking">
-    <p>titre:</p> <?php echo $eventinfo[0]['titre']; ?>
+    <p>titre: <?php echo $eventinfo[0]['titre']; ?></p>
     </section>
 
     <section class="Pbooking">
-    <p>description:</p><br>
-        <?php echo $eventinfo[0]['description']; ?>
+    <p>description:<br>
+        <?php echo $eventinfo[0]['description']; ?></p>
     </section>
 
     <section class="Pbooking">
-    <p>Commence le </p> <?php echo ($varDebut); ?>,
-    <p> et finit le </p> <?php echo ($varFin); ?>.
+    <p>Commence <?php echo ($varDebut); ?>,
+    et finit <?php echo ($varFin); ?>.</p>
     </section>
 
     </article>
