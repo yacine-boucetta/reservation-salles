@@ -85,11 +85,14 @@ class Reservation{
     } 
 
     public function getEventbyId(){
-        $getReservation = $this->db->prepare("SELECT reservation.id, reservation.titre, reservation.description, 
-        reservation.debut, reservation.fin reservation.id_utilisateur
-        FROM reservation JOIN utilisateur
-        WHERE reservation.id = :id
-        AND utilisateur.id = reservation.id_utilisateur");
+
+        $idUser = $_SESSION['user']['id'];
+
+        $getReservation = $this->db->prepare("SELECT reservations.id, reservations.titre, reservations.description, 
+        reservations.debut, reservations.fin, reservations.id_utilisateur
+        FROM reservations INNER JOIN utilisateurs
+        WHERE reservations.id = :id
+        AND utilisateurs.id = reservations.id_utilisateur");
         $getReservation->bindValue(':id', $idUser, PDO::PARAM_STR);
         $getReservation->execute();
         $result = $getReservation->fetchAll(PDO::FETCH_ASSOC);
@@ -97,10 +100,20 @@ class Reservation{
         return $result;
     }
     public function getPlanning(){
-        $planning=$this->db->prepare("SELECT login,description,debut,fin from utilisateurs INNER JOIN reservations ON utilisateurs.id = reservations.id_utilisateur");
+        $planning=$this->db->prepare("SELECT * from utilisateurs INNER JOIN reservations ON utilisateurs.id = reservations.id_utilisateur");
         $planning->execute();
-        $resulta = $planning->fetch(PDO::FETCH_ASSOC);
-        return $resulta;
+        $resulta = $planning->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getUserLog($id){
+
+        $getLog=$this->db->prepare("SELECT login FROM utilisateurs WHERE id = :id");
+        $getLog->bindValue(':id', $id, PDO::PARAM_STR);
+        $getLog->execute();
+        $resultas = $getLog->fetchAll(PDO::FETCH_ASSOC);
+        return $resultas;
+        
+    }
+
 }
 ?>
