@@ -100,9 +100,10 @@ class Reservation{
         return $result;
     }
     public function getPlanning(){
-        $planning=$this->db->prepare("SELECT * from utilisateurs INNER JOIN reservations ON utilisateurs.id = reservations.id_utilisateur");
+        $planning=$this->db->prepare("SELECT * FROM utilisateurs INNER JOIN reservations ON utilisateurs.id = reservations.id_utilisateur");
         $planning->execute();
-        $resulta = $planning->fetchAll(PDO::FETCH_ASSOC);
+        $resulta = $planning->fetch(PDO::FETCH_ASSOC);
+        return $resulta;
     }
 
     public function getUserLog($id){

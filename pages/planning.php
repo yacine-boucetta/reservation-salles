@@ -24,7 +24,7 @@ $jour_semaine=date('d/m', strtotime(''));
             </thead>
             <tbody >
                 <?php
-                $h_debut=date('h:m:s')
+                $h_debut=date('08:00');
                 $h_fin=date('09:00');
                 $plan=new Reservation;
                 $eng=$plan->getPlanning();
@@ -32,8 +32,7 @@ $jour_semaine=date('d/m', strtotime(''));
                 var_dump($eng);
                 
                 for($j=8;$j<19;$j++){
-                
-                echo"<tr></tr>";
+                echo"<tr>";
                 for($i=0;$i<=5;$i++){
                     if($i==0){
                         echo"<td>$h_debut-$h_fin h</td>";
@@ -47,8 +46,10 @@ $jour_semaine=date('d/m', strtotime(''));
                         else{
                            echo "<td>b</td>";
                         }
+                       
+                } 
                 }
-                }
+                echo"</tr>";
                 }   
                 ?>
             </tbody>
