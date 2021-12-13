@@ -97,10 +97,10 @@ class Reservation{
         return $result;
     }
     public function getPlanning(){
-        $planning=$this->db->prepare("SELECT * from utilisateurs INNER JOIN reservations ON utilisateurs.id = reservations.id_utilisateur");
-        $plannining->execute();
-        $resulta = $planning->fetchAll(PDO::FETCH_ASSOC);
+        $planning=$this->db->prepare("SELECT login,description,debut,fin from utilisateurs INNER JOIN reservations ON utilisateurs.id = reservations.id_utilisateur");
+        $planning->execute();
+        $resulta = $planning->fetch(PDO::FETCH_ASSOC);
+        return $resulta;
     }
-
 }
 ?>

@@ -1,16 +1,18 @@
 <?php
-require '../config/db.php'
+
+require '../config/classReservation.php';
 
 ?>
 <?php
 require '../template/header.php';
 $jour_semaine=date('d/m', strtotime(''));
+
 ?>
-<article>
+
 <h1>Planning <?php echo $jour_semaine = date('Y', time());?></h1>
         <h2>Semaine <?php echo $jour_semaine = date('W', time());?></h2>
-        <table>
-            <thead>
+        <table style='border: 1px solid black'>
+            <thead style='border: 1px solid black'>
                 <tr>
                     <th class="vide"></th>
                     <th class="jour">Lundi <?php echo $jour_semaine = date('d/m', strtotime('monday this week'));?></th>
@@ -20,18 +22,38 @@ $jour_semaine=date('d/m', strtotime(''));
                     <th class="jour">Vendredi <?php echo $jour_semaine = date('d/m', strtotime('friday this week'));?></th>
                 </tr>                              
             </thead>
-            <tbody>
+            <tbody >
                 <?php
-                for($i=1;$i<=5;$i++){
-                   
-                    for($j=1;$j<=11;$j++){
-
+                $h_debut=date('h:m:s')
+                $h_fin=date('09:00');
+                $plan=new Reservation;
+                $eng=$plan->getPlanning();
+                var_dump($jour_semaine);
+                var_dump($eng);
+                
+                for($j=8;$j<19;$j++){
+                
+                echo"<tr></tr>";
+                for($i=0;$i<=5;$i++){
+                    if($i==0){
+                        echo"<td>$h_debut-$h_fin h</td>";
+                        $h_debut++;
+                        $h_fin++;
                     }
-                }        
+                    else{  
+                        if(isset($eng['debut']) && $eng['debut']==$jour_semaine ){
+                            echo "<td>c</td>";
+                    }
+                        else{
+                           echo "<td>b</td>";
+                        }
+                }
+                }
+                }   
                 ?>
             </tbody>
         </table>
-</article>
+
 
 
 <?php
