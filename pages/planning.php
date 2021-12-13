@@ -30,7 +30,8 @@ $jour_semaine=date('d/m', strtotime(''));
                 $eng=$plan->getPlanning();
                 var_dump($jour_semaine);
                 var_dump($eng);
-                
+                $heurs= explode (" ",$eng['debut']);
+                var_dump($heurs);
                 for($j=8;$j<19;$j++){
                 echo"<tr>";
                 for($i=0;$i<=5;$i++){
@@ -44,9 +45,8 @@ $jour_semaine=date('d/m', strtotime(''));
                             echo "<td>c</td>";
                     }
                         else{
-                           echo "<td>b</td>";
+                        echo "<td>b</td>";
                         }
-                       
                 } 
                 }
                 echo"</tr>";
