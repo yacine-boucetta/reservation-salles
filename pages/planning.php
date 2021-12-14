@@ -49,7 +49,7 @@ $jour_semaine=date('d/m', strtotime(''));
                                 if($case == $case_resa)
                                     {                                                 
                                         ?>
-                                            <td class="resa"><a href="reservation.php?evenement=<?php echo $id;?>"><p><?php echo $titre;?></p><p><?php echo $login;?></p></a></td>
+                                            <td class="resa"><a href="reservation.php/?id=<?php echo $id;?>"><p><?php echo $titre;?></p><p><?php echo $login;?></p></a></td>
                                         <?php                                                
                                         break; 
                                     }
