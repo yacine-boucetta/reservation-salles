@@ -27,7 +27,6 @@ $jour_semaine=date('d/m', strtotime(''));
 
                 $plan=new Reservation;
                 $resa_research=$plan->getPlanning();
-                var_dump($resa_research);
                 for($heure=8;$heure<=19;$heure++){
                 echo"<tr>
                 <td><p> $heure h</p></td>";
