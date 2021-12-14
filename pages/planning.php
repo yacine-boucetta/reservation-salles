@@ -24,31 +24,55 @@ $jour_semaine=date('d/m', strtotime(''));
             </thead>
             <tbody >
                 <?php
-                $h_debut=date('08:00');
-                $h_fin=date('09:00');
                 $plan=new Reservation;
-                $eng=$plan->getPlanning();
-                var_dump($jour_semaine);
-                var_dump($eng);
-                $heurs= explode (" ",$eng['debut']);
-                var_dump($heurs);
-                for($j=8;$j<19;$j++){
-                echo"<tr>";
-                for($i=0;$i<=5;$i++){
-                    if($i==0){
-                        echo"<td>$h_debut-$h_fin h</td>";
-                        $h_debut++;
-                        $h_fin++;
-                    }
-                    else{  
-                        if(isset($eng['debut']) && $eng['debut']==$jour_semaine ){
-                            echo "<td>c</td>";
-                    }
-                        else{
-                        echo "<td>b</td>";
-                        }
-                } 
-                }
+                $resa_research=$plan->getPlanning();
+                var_dump($resa_research);
+                for($heure=8;$heure<=19;$heure++){
+                echo"<tr>
+                <td><p> $heure h</p></td>";
+                for($jour=0;$jour<=5;$jour++){
+                    if(!empty($resa_research))
+                    {                                                                                             
+                        foreach($resa_research as $resa => $resa_hour)
+                            {                                                
+                                $j_hour= explode(" ",  $resa_hour['debut']);
+                                var_dump($resa_hour);
+                                $h_hour= explode(":", $j_hour[1]);
+                                $heure_resa = date("G", mktime($h_hour[0], $h_hour[1], $h_hour[2], 0, 0, 0));       
+                                var_dump($heure_resa);         
+                                $j = explode("-", $j_hour[0]);
+                                $jour_resa= date("N", mktime(0, 0, 0, $j[1], $j[2], $j[0]));   
+                                var_dump($jour_resa);
+                                $case_resa = $j . $jour_resa;                                   
+                                $titre =$resa_hour["titre"];
+                                $login = $resa_hour["login"];
+                                $id =$resa_hour["id"];
+                                                                
+                                $case = $heure . $jour;
+                                var_dump($case);
+                                if($case == $case_resa)
+                                    {                                                 
+                                        ?>
+                                            <td class="resa"><a href="reservation.php?evenement=<?php echo $id;?>"><p><?php echo $titre;?></p><p><?php echo $login;?></p></a></td>
+                                        <?php                                                
+                                        break; 
+                                    }
+                                else 
+                                    {
+                                        $case = null; 
+                                    }                                                                                         
+                            }                                                                       
+                        if ($case == null)
+                            {                                                                                                                                                                                                           
+                                ?>
+                                <td class="case"><a href="reservation-form.php?heure_debut=<?php echo $j;?>&amp;date_debut=<?php echo $jour;?>">Réserver un créneau</a></td>
+                                <?php
+                            }                                                                                                                                                
+                    }                                                                                                       
+                else
+                    {                               
+                    }                            
+            }                                          
                 echo"</tr>";
                 }   
                 ?>
