@@ -24,6 +24,7 @@ $jour_semaine=date('d/m', strtotime(''));
             </thead>
             <tbody >
                 <?php
+
                 $plan=new Reservation;
                 $resa_research=$plan->getPlanning();
                 var_dump($resa_research);
@@ -36,20 +37,15 @@ $jour_semaine=date('d/m', strtotime(''));
                         foreach($resa_research as $resa => $resa_hour)
                             {                                                
                                 $j_hour= explode(" ",  $resa_hour['debut']);
-                                var_dump($resa_hour);
                                 $h_hour= explode(":", $j_hour[1]);
-                                $heure_resa = date("G", mktime($h_hour[0], $h_hour[1], $h_hour[2], 0, 0, 0));       
-                                var_dump($heure_resa);         
+                                $heure_resa = date("G", mktime($h_hour[0], $h_hour[1], $h_hour[2], 0, 0, 0));                
                                 $j = explode("-", $j_hour[0]);
                                 $jour_resa= date("N", mktime(0, 0, 0, $j[1], $j[2], $j[0]));   
-                                var_dump($jour_resa);
                                 $case_resa = $heure_resa . $jour_resa;                                   
                                 $titre =$resa_hour["titre"];
                                 $login = $resa_hour["login"];
-                                $id =$resa_hour["id"];
-                                                                
+                                $id =$resa_hour["id"];                                 
                                 $case = $heure . $jour;
-                                var_dump($case);
                                 if($case == $case_resa)
                                     {                                                 
                                         ?>
