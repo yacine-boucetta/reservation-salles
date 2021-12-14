@@ -24,7 +24,6 @@
             <a class='nav-item nav-link' href='pages/profil.php'>Profil</a>
             <a class='nav-item nav-link' href='pages/deconnexion.php'>Deconnexion</a>
             <a class='nav-item nav-link' href='pages/planning.php'>Planning</a>
-            <a class='nav-item nav-link' href='pages/reservation.php'>Reservation</a>
         </div>
     </div>
     <nav class="navbar navbar-dark bg-dark">
