@@ -1,17 +1,21 @@
 <?php
 require '../config/classReservation.php';
 setlocale(LC_TIME, 'fr');
+
 // echo '<pre>';
 // var_dump($_SESSION['user']);
 // echo '</pre>';
 
 if(isset($_GET['id'])){
-    setlocale(LC_TIME, 'fr');
     $event = new Reservation;
     $eventinfo = $event->getEventbyId($_GET['id']);
-    // echo '<pre>';
-    // var_dump($eventinfo);
-    // echo '</pre>';
+    echo '<pre>';
+    var_dump($_GET['id']);
+    echo '</pre>';
+
+    echo '<pre>';
+    var_dump($eventinfo);
+    echo '</pre>';
 
     $timeStart = $eventinfo[0]['debut'];
     $timeEnd = $eventinfo[0]['fin'];
@@ -50,7 +54,7 @@ if(isset($_GET['id'])){
 // }
 ?>
 <?php
-require '../template/header.php';
+require '../template/headerResa.php';
 ?>
     <article>
         <h1>Reservation</h1>
@@ -86,7 +90,7 @@ require '../template/header.php';
     </article>
     
     <?php 
-    //} 
+    
     ?>
 
 <?php
