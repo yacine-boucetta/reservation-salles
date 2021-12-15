@@ -52,14 +52,9 @@ if(isset($_GET['id'])){
 // else{
 //     $_SESSION['error'] = "Vous devez acceder a cette pas depuis la planning.";
 // }
-<<<<<<< HEAD
-
-require '../template/header.php';
-=======
 ?>
 <?php
 require '../template/headerResa.php';
->>>>>>> 5b3ab4b9fa514458e1a6bfab1f1338bb4f847707
 ?>
     <article>
         <h1>Reservation</h1>
@@ -88,13 +83,7 @@ require '../template/headerResa.php';
 
     </article>
     
-<<<<<<< HEAD
     
-=======
-    <?php 
-    
-    ?>
->>>>>>> 5b3ab4b9fa514458e1a6bfab1f1338bb4f847707
 
 <?php
 require '../template/footer.php';

@@ -92,7 +92,7 @@ class Reservation{
         FROM reservations INNER JOIN utilisateurs
         WHERE reservations.id = :id
         AND utilisateurs.id = reservations.id_utilisateur");
-        $getReservation->bindValue(':id', $_GET['id'] PDO::PARAM_STR);
+        $getReservation->bindValue(':id', $_GET['id'], PDO::PARAM_STR);
         $getReservation->execute();
         $result = $getReservation->fetchAll(PDO::FETCH_ASSOC);
 
