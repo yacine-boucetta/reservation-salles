@@ -43,12 +43,12 @@ $jour_semaine=date('d/m', strtotime(''));
                                 $case_resa = $heure_resa . $jour_resa;                                   
                                 $titre =$resa_hour["titre"];
                                 $login = $resa_hour["login"];
-                                $id =$resa_hour["id"];                                 
+                                $id =$resa_hour["id"];                             
                                 $case = $heure . $jour;
                                 if($case == $case_resa)
                                     {                                                 
                                         ?>
-                                            <td class="resa"><a href="reservation.php/?id=<?php echo $id;?>"><p><?php echo $titre;?></p><p><?php echo $login;?></p></a></td>
+                                            <td><a href="reservation.php/?id=<?php echo $id;?>"><p><?php echo $titre;?></p><p><?php echo $login;?></p></a></td>
                                         <?php                                                
                                         break; 
                                     }
@@ -60,7 +60,7 @@ $jour_semaine=date('d/m', strtotime(''));
                         if ($case == null)
                             {                                                                                                                                                                                                           
                                 ?>
-                                <td class="case"><a href="reservation-form.php?heure_debut=<?php echo $jour_resa;?>&amp;date_debut=<?php echo $jour;?>">Réserver un créneau</a></td>
+                                <td><a href="reservation-form.php?heure_debut=<?php echo $jour_resa;?>&amp;date_debut=<?php echo $jour;?>">Réserver un créneau</a></td>
                                 <?php
                             }                                                                                                                                                
                     }                                                                                                       

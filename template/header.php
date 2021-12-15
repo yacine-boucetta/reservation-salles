@@ -18,12 +18,13 @@
             <div class="bg-dark p-4">
             <h5 class="text-white h4">Le Z comedy Club</h5>
             <span class="text-muted">Venew avoire la haine avec nous.</span>
-            <a class="nav-item nav-link active" href="../index.php">Home </a>
-            <a class='nav-item nav-link' href='connexion.php'>Connexion</a>
-            <a class='nav-item nav-link' href='inscription.php'>Inscription</a>
-            <a class='nav-item nav-link' href='profil.php'>Profil</a>
-            <a class='nav-item nav-link' href='deconnexion.php'>Deconnexion</a>
-            <a class='nav-item nav-link' href='planning.php'>Planning</a>
+            <a class="nav-item nav-link active" href="../../index.php">Home </a>
+            <a class='nav-item nav-link' href='../pages/connexion.php'>Connexion</a>
+            <a class='nav-item nav-link' href='../pages/inscription.php'>Inscription</a>
+            <a class='nav-item nav-link' href='../pages/profil.php'>Profil</a>
+            <a class='nav-item nav-link' href='../pages/deconnexion.php'>Deconnexion</a>
+            <a class='nav-item nav-link' href='../pages/planning.php'>Planning</a>
+        </div>
         </div>
     </div>
     <nav class="navbar navbar-dark bg-dark">

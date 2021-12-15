@@ -8,7 +8,7 @@ if(isset($_POST['submit'])){
 }
 ?>
 <?php
-require '../template/header.php';
+require '../template/.php';
 ?>
 
 <article>

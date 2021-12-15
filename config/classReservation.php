@@ -86,14 +86,14 @@ class Reservation{
 
     public function getEventbyId(){
 
-        $idUser = $_SESSION['user']['id'];
+       
 
         $getReservation = $this->db->prepare("SELECT reservations.id, reservations.titre, reservations.description, 
         reservations.debut, reservations.fin, reservations.id_utilisateur
         FROM reservations INNER JOIN utilisateurs
         WHERE reservations.id = :id
         AND utilisateurs.id = reservations.id_utilisateur");
-        $getReservation->bindValue(':id', $idUser, PDO::PARAM_STR);
+        $getReservation->bindValue(':id', $_GET['id'], PDO::PARAM_STR);
         $getReservation->execute();
         $result = $getReservation->fetchAll(PDO::FETCH_ASSOC);
 

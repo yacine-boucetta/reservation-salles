@@ -9,6 +9,7 @@ if(isset($_GET['id'])){
     setlocale(LC_TIME, 'fr');
     $event = new Reservation;
     $eventinfo = $event->getEventbyId($_GET['id']);
+    var_dump($eventinfo);
     // echo '<pre>';
     // var_dump($eventinfo);
     // echo '</pre>';
@@ -48,19 +49,12 @@ if(isset($_GET['id'])){
 // else{
 //     $_SESSION['error'] = "Vous devez acceder a cette pas depuis la planning.";
 // }
-?>
-<?php
+
 require '../template/header.php';
 ?>
     <article>
         <h1>Reservation</h1>
-        <?php
-        // if(isset($_SESSION['user'])){
-        // echo '<p>'. $_SESSION['error'].'</p>';
-        // unset($_SESSION['error']);
-        // }
-        // else{
-        ?>
+    
     </article>
 
     <article>
@@ -85,9 +79,7 @@ require '../template/header.php';
 
     </article>
     
-    <?php 
-    //} 
-    ?>
+    
 
 <?php
 require '../template/footer.php';

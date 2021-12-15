@@ -1,5 +1,5 @@
 <?php
-
+$_GET='';
 require '../config/classUser.php';
 if (isset($_POST['valider'])){
 $profile = new User;
