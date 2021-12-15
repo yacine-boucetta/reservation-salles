@@ -13,8 +13,8 @@ require '../template/.php';
 
 <article>
     <form method="POST" >
-        <input type="text" name="titre" placeholder="Le nom de votre evenement" required='required'></input>
-        <input type="date" name="date" placeholder="Choisissez une date" required='required'></input>
+        <input class="form-control" type="text" name="titre" placeholder="Le nom de votre evenement" required='required'></input>
+        <input class="form-control" type="date" name="date" placeholder="Choisissez une date" required='required'></input>
         <select name="creneaux" id="creneaux" placeholder="Choisissez un Creaneaux" required='required'>
             <option value="1">8h/9h</option> 
             <option value="2">9h/10h</option> 
@@ -29,7 +29,7 @@ require '../template/.php';
             <option value="11">18h/19h</option>
         </select>
         <textarea name="description" row="4" cols="50" placeholder="Descrition de votre evenement" style="resize:none" required='required'></textarea>
-        <button class="btn btn-success from-group" type="submit" name="submit">Reserver</button>
+        <button class="btn btn-success from-group" class="btn btn-success from-group" type="submit" name="submit">Reserver</button>
     </form>
 </article>
 

@@ -13,10 +13,10 @@ $inscription->user_inscription($_POST['login'],$_POST['password'],$_POST['passwo
 <?php require '../template/header.php';?>
 <h2>Sign up</h2>
     <form  method='post'>
-        <input type="text" name="login" required="" placeholder="Username">
-        <input type="password" name="password" required="" placeholder="password">
-        <input type="password" name="password2" required="" placeholder="veuillez confirmer votre mot de passe">
-        <button type="submit" name="sign_up" value="sign_up">Valider</button>
+        <input class="form-control" type="text" name="login" required="" placeholder="Username">
+        <input class="form-control" type="password" name="password" required="" placeholder="password">
+        <input class="form-control" type="password" name="password2" required="" placeholder="veuillez confirmer votre mot de passe">
+        <button class="btn btn-success from-group" type="submit" name="sign_up" value="sign_up">Valider</button>
     </form>
     <?php require '../template/footer.php';?>
 
