@@ -106,7 +106,7 @@ class Reservation{
     }
 
     public function getUserLog($id){
-
+        
         $getLog=$this->db->prepare("SELECT login FROM utilisateurs WHERE id = :id");
         $getLog->bindValue(':id', $id, PDO::PARAM_STR);
         $getLog->execute();
