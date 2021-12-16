@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <title>Document</title>
 </head>
 <header>
@@ -19,7 +19,7 @@
             <div class="bg-dark p-4">
             <h5 class="text-white h4">Le Z comedy Club</h5>
             <span class="text-muted">Venew avoire la haine avec nous.</span>
-            <a class="nav-item nav-link active" href="../../index.php">Home </a>
+            <a class="nav-item nav-link active" href="./../index.php">Home </a>
             <a class='nav-item nav-link' href='../pages/connexion.php'>Connexion</a>
             <a class='nav-item nav-link' href='../pages/inscription.php'>Inscription</a>
             <a class='nav-item nav-link' href='../pages/profil.php'>Profil</a>

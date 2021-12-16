@@ -27,7 +27,7 @@
 
     <!-- Section: Form -->
     <section class="">
-        <form action="">
+        <form id='form_footer' action="">
         <!--Grid row-->
         <div class="row d-flex justify-content-center">
         <!--Grid column-->
