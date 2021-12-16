@@ -9,13 +9,13 @@ setlocale(LC_TIME, 'fr');
 if(isset($_GET['id'])){
     $event = new Reservation;
     $eventinfo = $event->getEventbyId($_GET['id']);
-    echo '<pre>';
-    var_dump($_GET['id']);
-    echo '</pre>';
+    // echo '<pre>';
+    // var_dump($_GET['id']);
+    // echo '</pre>';
 
-    echo '<pre>';
-    var_dump($eventinfo);
-    echo '</pre>';
+    // echo '<pre>';
+    // var_dump($eventinfo);
+    // echo '</pre>';
 
     $timeStart = $eventinfo[0]['debut'];
     $timeEnd = $eventinfo[0]['fin'];
