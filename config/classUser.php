@@ -25,7 +25,6 @@ public function user_inscription($login,$password,$password2) {
     $userExists = $inscription->rowcount();
     $connexionfetch=$inscription->fetchAll(PDO::FETCH_ASSOC);
 
-    var_dump($connexionfetch);
     if($userExists==1){
         $message="ce nom d'utilisateur existe déjà";
     }
@@ -78,7 +77,7 @@ public function user_connexion() {
 public function user_profil($login,$password,$password2){
 
     if(isset($_SESSION['user'])){
-        $oldlogin=$_SESSION['user'];
+        $oldlogin=$_SESSION['user']['login'];
         $connexion=$this->db->prepare("SELECT * FROM `utilisateurs` WHERE `login`= :login ");
         $connexion->bindValue(':login',$oldlogin);
         $connexion->execute();
@@ -90,15 +89,14 @@ public function user_profil($login,$password,$password2){
         }
 
         $password2 = $_POST['password2'];
-        $password = $_POST['password'];
+        $password1 = $_POST['password1'];
         $login1 = $_POST['login'];
         
         $connexion=$this->db->prepare("SELECT login FROM `utilisateurs`WHERE `login`= :login ");
         $connexion->execute(array(':login' => $login1));
         $userExists = $connexion->rowcount();
         $connexionfetch=$connexion->fetchall(PDO::FETCH_ASSOC);
-        var_dump($connexionfetch);
-        var_dump($userExists);
+        
     
         if($userExists>0){
     $message="ce pseudo existe déjà";
@@ -109,9 +107,9 @@ public function user_profil($login,$password,$password2){
         $connexion->bindValue(':login',$oldlogin ,PDO::PARAM_STR);
         $connexion->bindValue(':login1',$login1 ,PDO::PARAM_STR);
         $connexion->execute();
-        $_SESSION['user']=$login1;
+        
     
-        if(strlen($_POST['password'])>=6){
+        if(strlen($_POST['password1'])>=6){
         if($password1==$password2){
         $password1=password_hash($password1,PASSWORD_DEFAULT);
         $sqlinsert="INSERT INTO utilisateurs(password) VALUES(:password)";
@@ -119,7 +117,8 @@ public function user_profil($login,$password,$password2){
         $connexioninsert->execute(array(
         ':password'=>$password1));
         }
-    }    
+    }  
+      $_SESSION['user']=$connexionfetch1;
     }
     }
     // public function logout() {

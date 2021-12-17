@@ -3,9 +3,9 @@ $_GET='';
 require '../config/classUser.php';
 if (isset($_POST['valider'])){
 $profile = new User;
-$profile->user_profil($_POST['login'],$_POST['password'],$_POST['password2']);
+$profile->user_profil($_POST['login'],$_POST['password1'],$_POST['password2']);
 
-}
+}var_dump($_SESSION['user']);
 ?>
 
 
@@ -21,7 +21,7 @@ $profile->user_profil($_POST['login'],$_POST['password'],$_POST['password2']);
     </div>
     <p>information ? bin voyons</p>
     <div class="item">
-    <label for=""><p><?php echo $_SESSION['user']['login'];?></p></label>
+    <label for=""><p><?php echo $_SESSION['user']['login']; ?></p></label>
     <input class="form-control" type="text" name="login"  placeholder="nouveau login" >
 </div>
     <div class="item">
