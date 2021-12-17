@@ -35,7 +35,7 @@ $inscription->user_inscription($_POST['login'],$_POST['password'],$_POST['passwo
         <input id="name" type="password" name="password2" required/> 
         
     <div class="btn-block">
-        <button type="submit" href="/">HIN !</button>
+        <button name='sign_up'type="submit" href="/">HIN !</button>
     </div>
 </div>
 </div>

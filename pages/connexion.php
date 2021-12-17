@@ -22,7 +22,7 @@ if(isset($_POST['sign_in'])){
         <input class="form-control" type="password" name="password" required="" placeholder="password">
 </div>
 <div class="btn-block">
-        <button class="btn btn-success from-group" type="submit" name="sign_in" value="sign_in">Valider</button>
+        <button name='sign_in' class="btn btn-success from-group" type="submit" name="sign_in" value="sign_in">Valider</button>
 </div>
 
     </form>
