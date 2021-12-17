@@ -26,7 +26,7 @@ $profile->user_profil($_POST['login'],$_POST['password'],$_POST['password2']);
 </div>
     <div class="item">
     <label for=""><p>Password:</p></label>
-    <input class="form-control" type="password" name="password"  placeholder="le nouveau mdp doit avoir 6 charactere minimum";?>
+    <input class="form-control" type="password" name="password1"  placeholder="le nouveau mdp doit avoir 6 charactere minimum";?>
 </div>
     <div class="item">
     <label for=""><p>confirmation mdp </p></label>
