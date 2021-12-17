@@ -9,10 +9,23 @@ if(isset($_POST['sign_in'])){
 ?>
 
 <?php require '../template/header.php';?>
-<h2>Sign in</h2>
-    <form  method='post'>
+<div class="testbox">
+
+    <form class="sign" method='post'>
+    <div class="banner">
+        <h2>Sign in</h2>
+</div>
+<div class="item">
         <input class="form-control" type="text" name="login" required="" placeholder="Username">
+        </div>
+        <div class="item">
         <input class="form-control" type="password" name="password" required="" placeholder="password">
+</div>
+<div class="btn-block">
         <button class="btn btn-success from-group" type="submit" name="sign_in" value="sign_in">Valider</button>
+</div>
+
     </form>
+</div>
+
 <?php require '../template/footer.php';?>

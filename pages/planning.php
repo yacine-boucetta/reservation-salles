@@ -9,8 +9,9 @@ $jour_semaine=date('d/m', strtotime(''));
 
 ?>
 
-<h1>Planning <?php echo $jour_semaine = date('Y', time());?></h1>
+<h1 class="planning">Planning <?php echo $jour_semaine = date('Y', time());?></h1>
         <h2>Semaine <?php echo $jour_semaine = date('W', time());?></h2>
+        <div class='plan' >
         <table style='border: 1px solid black'>
             <thead style='border: 1px solid black'>
                 <tr>
@@ -24,7 +25,6 @@ $jour_semaine=date('d/m', strtotime(''));
             </thead>
             <tbody >
                 <?php
-
                 $plan=new Reservation;
                 $resa_research=$plan->getPlanning();
                 for($heure=8;$heure<=19;$heure++){
@@ -74,7 +74,7 @@ $jour_semaine=date('d/m', strtotime(''));
             </tbody>
         </table>
 
-
+            </div>
 
 <?php
 require '../template/footer.php';

@@ -1,6 +1,11 @@
 <?php
 require '../config/classReservation.php';
-
+$message='';
+if(!isset($_SESSION['user'])){
+    header('location: planning.php');
+    $message='Pour réserver un créneaux veuillez vous connecter';
+    
+}
 if(isset($_POST['submit'])){
     $connecter = new Reservation();
     $connecter->getEvent($_POST['titre'], $_POST['description'], $_POST['date'], $_POST['creneaux'], $_SESSION['user']['id']);
@@ -8,11 +13,13 @@ if(isset($_POST['submit'])){
 }
 ?>
 <?php
-require '../template/.php';
+require '../template/header.php';
 ?>
 
-<article>
-    <form method="POST" >
+<div class="testbox">
+    <form class='sign' method="POST" >
+    
+        <p style='color:red'><?php echo $message; ?></p>
         <input class="form-control" type="text" name="titre" placeholder="Le nom de votre evenement" required='required'></input>
         <input class="form-control" type="date" name="date" placeholder="Choisissez une date" required='required'></input>
         <select name="creneaux" id="creneaux" placeholder="Choisissez un Creaneaux" required='required'>
@@ -29,9 +36,11 @@ require '../template/.php';
             <option value="11">18h/19h</option>
         </select>
         <textarea name="description" row="4" cols="50" placeholder="Descrition de votre evenement" style="resize:none" required='required'></textarea>
-        <button class="btn btn-success from-group" class="btn btn-success from-group" type="submit" name="submit">Reserver</button>
+        <div class="btn-block"> 
+            <button class="btn btn-success from-group" class="btn btn-success from-group" type="submit" name="submit">Reserver</button>
+</div>
     </form>
-</article>
+</div>
 
 <?php
 require '../template/footer.php';
