@@ -64,7 +64,7 @@
         <p>
             Le Z 2022
         </p>
-        <a class="nav-item nav-link" href="https://github.com/thomas-dellacase/livre-d-or">Depot github</a>
+        <a class="nav-item nav-link" href="https://github.com/yacine-boucetta/reservation-salles">Depot github</a>
     </section>
 </footer>
 </body>
