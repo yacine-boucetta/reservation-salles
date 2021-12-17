@@ -10,18 +10,31 @@ $profile->user_profil($_POST['login'],$_POST['password'],$_POST['password2']);
 
 
 <?php require '../template/header.php';?>
-<h2>mon profil</h2>
 
+<div class='testbox'>
+ 
 <p><?php if(isset($message)){ echo $message; }?></p>
-<form  method='post'>
-    <img src="../ressources/zem.jpg">
-    <label for=""><p style="color:rgb(3, 134, 128);font-family:'upheavtt';"><?php echo $_SESSION['user']['login'];?></p></label>
+<form  class='sign' method='post'>  
+     <h2>Mon profil</h2>
+<div class="banner2">
+        <h1>Ceci n'est pas Mr Burns</h1>
+    </div>
+    <p>information ? bin voyons</p>
+    <div class="item">
+    <label for=""><p><?php echo $_SESSION['user']['login'];?></p></label>
     <input class="form-control" type="text" name="login"  placeholder="nouveau login" >
-    <br />
-    <label for=""><p style="color:rgb(3, 134, 128);font-family:'upheavtt';">Password:</p></label>
+</div>
+    <div class="item">
+    <label for=""><p>Password:</p></label>
     <input class="form-control" type="password" name="password"  placeholder="le nouveau mdp doit avoir 6 charactere minimum";?>
-    <br />
-    <label for=""><p style="color:rgb(3, 134, 128);font-family:'upheavtt';">confirmation mdp </p></label>
+</div>
+    <div class="item">
+    <label for=""><p>confirmation mdp </p></label>
     <input class="form-control" type="password" name="password2"  placeholder="veuillez confirmer votre mot de passe">
-    <button class="btn btn-success from-group" type="submit" name="valider" value="valider">valider</button>
+</div>
+<div class="btn-block">
+    <button  type="submit" name="valider" value="valider">valider</button>
+</div>
+</form>
+</div>
 <?php require '../template/footer.php';?>
