@@ -2,7 +2,7 @@
 require '../config/classReservation.php';
 $message='';
 if(!isset($_SESSION['user'])){
-    header('location: planning.php');
+    header('location: connexion.php');
     $message='Pour réserver un créneaux veuillez vous connecter';
     
 }
