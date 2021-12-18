@@ -77,7 +77,10 @@ public function user_connexion() {
 public function user_profil($login,$password,$password2){
 
     if(isset($_SESSION['user'])){
+
+        var_dump($_SESSION['user']);
         $oldlogin=$_SESSION['user']['login'];
+        
         $connexion=$this->db->prepare("SELECT * FROM `utilisateurs` WHERE `login`= :login ");
         $connexion->bindValue(':login',$oldlogin);
         $connexion->execute();
@@ -107,7 +110,12 @@ public function user_profil($login,$password,$password2){
         $connexion->bindValue(':login',$oldlogin ,PDO::PARAM_STR);
         $connexion->bindValue(':login1',$login1 ,PDO::PARAM_STR);
         $connexion->execute();
-        
+        // $connexion=$this->db->prepare("SELECT * FROM `utilisateurs` WHERE `login`= :login ");
+        // $connexion->bindValue(':login',$login1);
+        // $connexion->execute();
+        // $connexionfetch1=$connexion->fetchall(PDO::FETCH_ASSOC);
+        $_SESSION['login']=$login1;
+        header("Location: profil.php");
     
         if(strlen($_POST['password1'])>=6){
         if($password1==$password2){
@@ -118,15 +126,8 @@ public function user_profil($login,$password,$password2){
         ':password'=>$password1));
         }
     }  
-      $_SESSION['user']=$connexionfetch1;
     }
     }
-    // public function logout() {
-    //     session_start();
-    //     session_destroy();
-    //     header("Location: index.php");
-        
-    //     }
     }
 }
 }
