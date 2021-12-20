@@ -56,35 +56,27 @@ if(isset($_GET['id'])){
 <?php
 require '../template/headerResa.php';
 ?>
-    <article>
-        <h1>Reservation</h1>
-    
-    </article>
-
-    <article>
-
-    <section class="Pbooking">
-    <p>Réservation réalisée par: <?php echo $getUser[0]['login']; ?></p>
-    </section>
-
-    <section class="Pbooking">
-    <p>titre: <?php echo $eventinfo[0]['titre']; ?></p>
-    </section>
-
-    <section class="Pbooking">
-    <p>description:<br>
-        <?php echo $eventinfo[0]['description']; ?></p>
-    </section>
-
-    <section class="Pbooking">
-    <p>Commence <?php echo ($varDebut); ?>,
-    et finit <?php echo ($varFin); ?>.</p>
-    </section>
-
-    </article>
-    
-    
-
+    <div id='divResa'>
+        <article id='artResa1'>
+            <h1 id='h1Resa'>Reservation</h1>
+        </article>
+        <article id='artResa2'>
+            <section class="Pbooking">
+                <p>Réservation réalisée par: <?php echo $getUser[0]['login']; ?></p>
+            </section>
+            <section class="Pbooking">
+                <p>titre: <?php echo $eventinfo[0]['titre']; ?></p>
+            </section>
+            <section class="Pbooking">
+                <p>description:<br>
+                <?php echo $eventinfo[0]['description']; ?></p>
+            </section>
+            <section class="Pbooking">
+                <p>Commence <?php echo ($varDebut); ?>,
+                et finit <?php echo ($varFin); ?>.</p>
+            </section>
+        </article>
+    </div>
 <?php
 require '../template/footer.php';
 ?>

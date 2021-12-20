@@ -168,3 +168,36 @@
       color: black;
       text-align: center;
     }
+
+
+
+  #divResa{
+    justify-content: center;
+    min-height:80vh;
+    display: flex;
+    flex-wrap: wrap;
+    background-image: url(../ressources/leZ.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+  #artResa1{
+    width: 100%;
+    display : flex;
+    justify-content: center;
+  }
+  #artResa2{
+    border: 3px solid blue;
+    padding: 2%;
+    height: 5%;
+    width: 30%;
+    display : flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: rgb(255, 255, 255, 0.7);
+  }
+  .Pbooking{
+    width: 100%;
+    display : flex;
+    justify-content: center;
+  }
