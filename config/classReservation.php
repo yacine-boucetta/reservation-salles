@@ -65,9 +65,9 @@ class Reservation{
         $debut_d = $_POST['date'].' '.$debut;
         $fin_d =  $_POST['date'].' '.$fin;   
         
-        var_dump($_POST['creneaux']).'<br>';
-        var_dump($debut_d).'<br>';
-        var_dump($fin_d).'<br>';
+        // var_dump($_POST['creneaux']).'<br>';
+        // var_dump($debut_d).'<br>';
+        // var_dump($fin_d).'<br>';
 
 
         $titre = htmlspecialchars(trim($titre));
