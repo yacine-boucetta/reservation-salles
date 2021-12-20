@@ -31,8 +31,7 @@ $jour_semaine=date('d/m', strtotime(''));
                 echo"<tr>
                 <td><p> $heure h</p></td>";
                 for($jour=1;$jour<=5;$jour++){
-                    if(!empty($resa_research))
-                    {                                                                                             
+                    if(!empty($resa_research)){                                                                                             
                         foreach($resa_research as $resa => $resa_hour)
                             {                                                
                                 $j_hour= explode(" ",  $resa_hour['debut']);
@@ -67,7 +66,7 @@ $jour_semaine=date('d/m', strtotime(''));
                 else
                     {   
                         ?>
-                        <td class="case"><a href="reservation-form.php?heure_debut=<?php echo $heure;?>&amp;date_debut=<?php echo $jour;?>">Réserver un créneau</a></td>
+                        <td><a href="reservation-form.php?heure_debut=<?php echo $heure;?>&amp;date_debut=<?php echo $jour;?>">Réserver un créneau</a></td>
                         <?php                     
                     }                            
             }                                          
