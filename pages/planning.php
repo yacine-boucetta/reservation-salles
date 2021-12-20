@@ -65,7 +65,10 @@ $jour_semaine=date('d/m', strtotime(''));
                             }                                                                                                                                                
                     }                                                                                                       
                 else
-                    {                        
+                    {   
+                        ?>
+                        <td class="case"><a href="reservation-form.php?heure_debut=<?php echo $heure;?>&amp;date_debut=<?php echo $jour;?>">Réserver un créneau</a></td>
+                        <?php                     
                     }                            
             }                                          
                 echo"</tr>";
