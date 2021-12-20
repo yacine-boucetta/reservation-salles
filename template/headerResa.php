@@ -22,16 +22,16 @@
             <?php if(isset($_SESSION['user']) && $_SESSION['user'] != ''){
             echo
             "<a class='nav-item nav-link active' href='../../index.php'>Home </a>
-            <a class='nav-item nav-link' href='../pages/planning.php'>Planning</a>
-            <a class='nav-item nav-link' href='../pages/profil.php'>Profil</a>
-            <a class='nav-item nav-link' href='../pages/deconnexion.php'>Deconnexion</a>";
+            <a class='nav-item nav-link' href='../../pages/planning.php'>Planning</a>
+            <a class='nav-item nav-link' href='../../pages/profil.php'>Profil</a>
+            <a class='nav-item nav-link' href='../../pages/deconnexion.php'>Deconnexion</a>";
             }
             else{
                 echo
             "<a class='nav-item nav-link active' href='../../index.php'>Home </a>
-            <a class='nav-item nav-link' href='../pages/planning.php'>Planning</a>
-            <a class='nav-item nav-link' href='../pages/connexion.php'>Connexion</a>
-            <a class='nav-item nav-link' href='../pages/inscription.php'>Inscription</a>
+            <a class='nav-item nav-link' href='../../pages/planning.php'>Planning</a>
+            <a class='nav-item nav-link' href='../../pages/connexion.php'>Connexion</a>
+            <a class='nav-item nav-link' href='../../pages/inscription.php'>Inscription</a>
             ";
             }
             ?>
