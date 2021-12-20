@@ -76,47 +76,45 @@ public function user_connexion() {
 //----------------------------------profil--------------------------
 public function user_profil($login,$password,$password2){
 
-    if(isset($_SESSION['user'])){
 
-        var_dump($_SESSION['user']);
+        $password2 = $_POST['password2'];
+        $password1 = $_POST['password1'];
+        $login = $_POST['login'];
         $oldlogin=$_SESSION['user']['login'];
-        
+
         $connexion=$this->db->prepare("SELECT * FROM `utilisateurs` WHERE `login`= :login ");
         $connexion->bindValue(':login',$oldlogin);
         $connexion->execute();
         $connexionfetch1=$connexion->fetchall(PDO::FETCH_ASSOC);
-    
+        
         if(isset($_POST['valider'])){
         if(empty($_POST['login'])){
         $_POST['login']=$oldlogin;
         }
-
-        $password2 = $_POST['password2'];
-        $password1 = $_POST['password1'];
-        $login1 = $_POST['login'];
         
-        $connexion=$this->db->prepare("SELECT login FROM `utilisateurs`WHERE `login`= :login ");
-        $connexion->execute(array(':login' => $login1));
+        $connexion=$this->db->prepare("SELECT * FROM `utilisateurs`WHERE `login`= :login ");
+        $connexion->bindValue(':login',$login);
         $userExists = $connexion->rowcount();
-        $connexionfetch=$connexion->fetchall(PDO::FETCH_ASSOC);
+        $connexionfetch=$connexion->fetchAll(PDO::FETCH_ASSOC);
         
-    
+
         if($userExists>0){
-    $message="ce pseudo existe déjà";
+        $message="ce pseudo existe déjà";
         }
     
         else{
         $connexion=$this->db->prepare("UPDATE `utilisateurs` SET `login`=:login1 WHERE `login`= :login");
         $connexion->bindValue(':login',$oldlogin ,PDO::PARAM_STR);
-        $connexion->bindValue(':login1',$login1 ,PDO::PARAM_STR);
+        $connexion->bindValue(':login1',$login ,PDO::PARAM_STR);
         $connexion->execute();
-        // $connexion=$this->db->prepare("SELECT * FROM `utilisateurs` WHERE `login`= :login ");
-        // $connexion->bindValue(':login',$login1);
-        // $connexion->execute();
-        // $connexionfetch1=$connexion->fetchall(PDO::FETCH_ASSOC);
-        $_SESSION['login']=$login1;
-        header("Location: profil.php");
-    
+
+        $connexion=$this->db->prepare("SELECT * FROM `utilisateurs` WHERE `login`= :login ");
+        $connexion->bindValue(':login',$login);
+        $connexion->execute();
+        $connexionfetch2=$connexion->fetchall(PDO::FETCH_ASSOC);
+        
+        $_SESSION['user']['login']=$login;
+      
         if(strlen($_POST['password1'])>=6){
         if($password1==$password2){
         $password1=password_hash($password1,PASSWORD_DEFAULT);
@@ -124,13 +122,15 @@ public function user_profil($login,$password,$password2){
         $connexioninsert=$this->db->prepare($sqlinsert);
         $connexioninsert->execute(array(
         ':password'=>$password1));
+
         }
     }  
     }
     }
     }
 }
-}
+
+
 
 
 
